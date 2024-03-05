@@ -1070,7 +1070,7 @@ footer {
     height: 70px;
   }
 
-  .ma-autre-section {
+
     p {
       color: var(--Grey, #353535);
       text-align: center;
@@ -1094,7 +1094,7 @@ footer {
       font-weight: 700;
       line-height: normal;
     }
-  }
+  
 
   div[h2="first-title"] {
     padding: 0px;
@@ -1224,14 +1224,14 @@ footer {
     white-space: nowrap;
   }
 
-  input[type="checkbox"]:checked + label {
+  input[type="checkbox"]:checked + label 
     .label-item, .item {
       width: 80%;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
     }
-  }
+  
 
   /* Styles pour les boutons individuels */
 
