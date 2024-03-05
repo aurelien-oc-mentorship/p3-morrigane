@@ -1,0 +1,726 @@
+* 
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+=link-styles
+  color: white
+  text-decoration: none
+
+
+=header-styles
+  background-color: #fff
+  color: #333
+
+// Styles pour html et body
+html, body
+  height: 100%
+  margin: 0
+  padding: 0
+  font-family: Arial, sans-serif
+
+  // Utilisation du mixin pour le sélecteur 'a'
+  a
+    +link-styles
+
+// Styles pour h2
+h2
+  margin-bottom: 20px
+
+// Utilisation du mixin pour le sélecteur 'header'
+header
+  +header-styles
+
+.item-description
+  display: block
+  
+  span.item-description
+    font-weight: normal
+    
+  input[type="checkbox"]:checked + label
+    .item-description
+      width: 80%
+      text-overflow: ellipsis
+      white-space: nowrap
+      overflow: hidden
+
+
+input[type="checkbox"]:checked + label 
+    border: 2px solid none
+    padding: 0px
+
+input[type="checkbox"]:checked + label::before 
+    right: -20px
+    opacity: 1
+
+input[type="checkbox"]:checked + label .label-item 
+    width: 80%
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+
+input[type="checkbox"]:checked + label .item-description
+    width: 80%
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+
+.img
+  width: 100%
+  height: 350px
+  object-fit: cover
+
+.ma-section
+  width: 100%
+  background: var(--Grey-2, #EAEAEA)
+  padding: 10px
+  border-radius: 5px
+  text-align: center
+
+.explorer-button
+  display: block
+  margin: 0 auto
+  padding: 10px 20px
+  background: linear-gradient(to bottom, #9356DC, #FF79DA)
+  color: #fff
+  border: none
+  border-radius: 50px
+  cursor: pointer
+  font-size: 16px
+  text-align: center
+  box-shadow: 0px 4px 6px rgb(146, 86, 220)
+  width: 186px
+  height: 50px
+
+.item-container 
+  background-color: white
+  margin: 10px 0
+  padding: 20px
+  max-width: 800px
+  text-align: right
+  border-radius: 20px
+  margin-left: 100px /* Ajustez la valeur selon le montant de décalage souhaité */
+
+/* Styles pour le pseudo-élément label de la case à cocher dans .item-container */
+.item-container input[type="checkbox"] + label::before
+  border-bottom-right-radius: 10px
+  border-top-right-radius: 10px
+  font-weight: 900
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  opacity: 0
+  height: 80px
+  width: 50px
+  background-color: #99E2D0
+  display: flex
+  content: "\f058"
+  font-family: "Font Awesome 5 free"
+  font-weight: 900
+  color: #fff
+  align-items: center
+  justify-content: center
+
+/* Styles pour les étiquettes list, store et mobile */
+.list-label, .store-label, .mobile-label
+  display: inline-block
+  cursor: pointer
+  position: relative
+  text-align: center
+  justify-content: center
+  display: flex
+  align-items: center
+
+/* Styles pour les icônes dans les étiquettes list, store et mobile */
+.store-label i, .list-label i, .mobile-label i
+  margin-right: 20px
+
+.fa-mobile-alt, .fa-list, .fa-store
+  color: #000000
+
+/* Styles supplémentaires pour la couleur de l'icône */
+.icon-color i
+  color: #9356DC
+
+/* Styles pour l'icône de la carte géographique */
+.fa-map-marker-alt
+  font-size: 24px
+  margin-right: 20px
+
+/* Styles pour le bouton de la case à cocher */
+.btn-checkbox
+  position: absolute
+  transform: scale(3.5)
+  opacity: 0
+  text-align: center
+  justify-content: center
+  display: flex
+  align-items: center
+
+/* Styles pour les boutons restaurant, menu et dégustez */
+.btn-restau, .btn-menu, .btn-dégustez
+  border-radius: 20px
+  background: var(--Background, #F6F6F6)
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15)
+  margin-right: 40px
+  font-size: 16px
+  width: 100%
+  height: 60px
+  cursor: pointer
+
+  input[type="checkbox"]:checked + label 
+    color: #000 
+
+/* Styles pour les icônes lorsque la case à cocher correspondante est cochée */
+  .btn-checkbox:checked + .mobile-label .fa-mobile-alt,
+  .btn-checkbox:checked + .list-label .fa-list,
+  .btn-checkbox:checked + .store-label .fa-store
+    color: #9356DC
+
+  .menu-checkbox:checked + .heart-label .fas .fa-list,
+  .dégustez-checkbox:checked + .heart-label .fa-solid.fa-store,
+  .restau-checkbox:checked + .heart-label .fas.fa-mobile-alt
+    display: inline-block
+
+  /* Styles pour les icônes lorsque la case à cocher correspondante est cochée */
+  .menu-checkbox:checked + .menu-label .fas .fa-list,
+  .dégustez-checkbox:checked + .dégustez-label .fa-solid.fa-store,
+  .restau-checkbox:checked + .restau-label .fas.fa-mobile-alt
+    display: none
+
+  /* Styles pour l'étiquette de la case à cocher et les éléments associés */
+  .btn-checkbox + label::before,
+  .heart-checkbox + label::before
+    display: none
+
+  #dégustez-checkbox
+    display: none
+  /* Styles pour .circle */
+  .circle
+    position: relative
+    top: 20px
+    width: 20px
+    height: 20px
+    background-color: #9356DC
+    border-radius: 50%
+    display: flex
+    justify-content: center
+    align-items: center
+    color: white
+    font-size: 14px
+    right: 10px
+
+/* Styles pour .menu */
+.menu
+  display: flex
+  align-items: center
+
+/* Styles au survol de .explorer-button */
+.explorer-button:hover
+  background-color: #0056b3
+  box-shadow: 0px 6px 8px rgba(147, 86, 220, 0.2)
+
+/* Styles pour .fa-arrow-left */
+.fa-arrow-left:before
+  content: "\f060"
+  color: black
+
+/* Styles pour .heart-label */
+.heart-label
+  display: inline-block
+  cursor: pointer
+  position: relative
+  font-size: 25px
+  margin-bottom: 10px
+
+  /* Styles pour .far.fa-heart dans .heart-label */
+.heart-label .far.fa-heart
+    color: black
+    margin-right: 25px
+
+
+#heart-checkbox[type="checkbox"]:checked + .heart-label::before
+    opacity: 0
+
+
+.heart-checkbox
+    display: none
+
+
+.heart-label .fas.fa-heart
+    font-size: 25px
+    display: inline-block
+    background: linear-gradient(to bottom, #9356DC, #FF79DA)
+    -webkit-background-clip: text
+    color: transparent
+    margin-right: 25px
+    display: none
+
+
+.heart-checkbox:checked + .heart-label .far.fa-heart
+    display: none
+
+.heart-checkbox:checked + .heart-label .fas.fa-heart
+    display: inline-block
+
+
+.menu-section i.fa-heart
+    margin-left: 20px
+
+.heart-label .fas.fa-heart
+    display: none
+
+/* Styles pour .ma-autre-section */
+.ma-autre-section
+  width: 100%
+  background: var(--Background, #F6F6F6)
+  padding: 10px
+  border-radius: 5px
+  text-align: center
+  margin-top: 0px
+  padding-bottom: 30px
+
+/* Styles pour h1 dans .ma-autre-section */
+.ma-autre-section h1
+    color: #000
+    text-align: center
+    font-size: 40px
+    font-style: normal
+    font-weight: 700
+    line-height: normal
+    padding-top: 30px
+
+/* Styles pour p dans .ma-autre-section */
+.ma-autre-section p
+    color: var(--Grey, #353535)
+    text-align: center
+    font-family: Roboto
+    font-size: 18px
+    font-style: normal
+    font-weight: 300
+    line-height: normal
+    padding-top: 30px
+    padding-bottom: 30px
+
+/* Styles pour .item-price */
+.item-price
+  position: absolute
+  right: 0
+  transform: translateX(0)
+  transition: transform 0.3s ease-in-out
+  float: right
+  text-align: right
+  font-weight: bold
+  margin-right: 0px
+
+/* Styles pour input[type="checkbox"]:checked + label .item-price */
+input[type="checkbox"]:checked + label .item-price
+  display: inline
+
+input[type="checkbox"]:checked + label .item-price
+    transform: translateX(-40px)
+
+input[type="checkbox"] + label .item-price
+    transform: translateX(0)
+
+/* Styles pour .item:hover .item-price */
+.item:hover .item-price
+    margin-left: 30px
+
+/* Styles pour .plat-interactif:hover .item-price */
+.plat-interactif:hover .item-price
+    transform: translateX(-30px)
+
+/* Styles pour .plat-interactif */
+.plat-interactif
+  justify-content: space-between
+  align-items: center
+  position: relative
+  cursor: pointe
+
+/* Styles pour .plat-interactif input */
+.plat-interactif input
+    margin-right: 10px
+
+/* Styles pour .plat-interactif::before */
+.plat-interactif::before
+    content: ""
+    margin: 0 auto
+
+/* Styles pour .plat-interactif:hover .check-icon */
+.plat-interactif:hover .check-icon
+  display: inline-block
+
+
+/* Styles pour .restau */
+.restau
+  margin-right: 20px
+
+/* Styles pour .restau i */
+.restau i
+    margin-right: 10px
+
+/* Styles pour .bas-depage .restau a */
+.bas-depage .restau a
+    color: white
+
+/* Styles pour .restaurant-section */
+.restaurant-section
+  background-color: #f2f2f2
+  display: flex
+  padding: 0px 180px
+  flex-direction: column
+  gap: 28px
+  align-self: stretch
+
+/* Styles pour .restaurants */
+.restaurants
+  display: flex
+  flex-wrap: wrap
+
+/* Styles pour .restaurants h1 */
+.restaurants h1
+    display: contents
+    margin-bottom: 20px
+
+/* Styles pour .titlerestaurant */
+.titlerestaurant
+    vertical-align: sub
+    margin-top: 30px
+    font-size: 24px
+    margin-left: 10px
+/* Styles pour .ma-div */
+.ma-div
+  padding: 10px
+  border-radius: 5px
+  color: #000
+
+/* Styles pour .lapalette */
+.lapalette
+  /* Autres styles pour votre bouton */
+  width: 100%
+  flex-direction: column
+  align-items: center
+  margin: 10px
+  border-radius: 20px
+  background-color: white
+  border: none
+
+/* Styles pour .lapalette span */
+.lapalette span
+    display: block
+
+/* Style pour .align-left */
+.align-left
+    font-weight: normal
+    border-bottom: 3px solid #99E2D0
+    margin-bottom: 10px
+    width: 50px
+    position: relative
+    left: 10%
+    color: #000
+    font-family: Roboto
+    font-size: 16px
+    font-style: normal
+    font-weight: 300
+    line-height: normal
+    text-transform: uppercase
+
+/* Styles pour .right-content */
+.right-content
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    margin-top: -10px
+    margin-bottom: -10px
+
+/* Styles pour div[h2="first-title"] */
+div[h2="first-title"]
+  color: var(--Black, #101010)
+  font-family: Shrikhand
+  font-size: 20px
+  font-style: normal
+  font-weight: 400
+  line-height: normal
+  padding: 40px
+
+/* Styles pour .first-title */
+.first-title
+  flex: 1
+
+/* Styles pour .menu-item */
+.menu-item
+  margin-bottom: 40px
+
+/* Styles pour .card */
+.card
+  flex: 1
+  max-width: calc(50% - 100px)
+  flex: 0 0 calc(50% - 10px)
+  margin-right: 100px
+  margin-bottom: 10px
+
+/* Styles pour .card-container */
+.card-container
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+  /* Style pour le conteneur du cœur avec les icônes */
+.text
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  /* Autres styles pour le contenu texte */
+  border-radius: 10px
+
+/* Styles pour .sub-title */
+.sub-title
+  text-align: left
+  color: #000
+  font-weight: normal
+  margin-left: 18px
+  margin-bottom: 15px
+  font-size: 17px
+
+  /* Styles pour .card-img-container */
+.card-img-container
+  position: relative
+
+  /* Styles pour img.card-img */
+img.card-img
+  max-width: 100%
+  max-height: 100%
+  border-top-left-radius: 10px
+  border-top-right-radius: 10px
+  position: relative
+  height: 200px
+  width: 100%
+  object-fit: cover
+
+  /* Styles pour .new-badge */
+.new-badge
+  position: absolute
+  top: 10px
+  background-color: #99E2D0
+  color: #008766
+  padding: 5px 10px
+  font-weight: bold
+  right: 10px
+
+.item
+  text-align: left
+  display: flex
+  flex-direction: row
+  align-items: flex-end
+
+/* Styles pour .menu-section */
+.menu-section
+  background-color: #f2f2f2
+  padding: 20px
+  margin: 0 auto
+  max-width: 1000px
+  text-align: center
+  margin-bottom: 20px
+  position: relative
+  margin-top: -50px
+  padding: 20px
+  border-top-left-radius: 20px
+  border-top-right-radius: 20px
+
+/* Styles pour .btn */
+.btn
+  margin-bottom: 50px
+  display: flex
+  justify-content: center
+
+  /* Styles pour .btn button */
+.btn button
+  flex: 1
+  margin-right: 10px
+  border-radius: 10px
+  margin-left: 10px
+  border: none
+
+/* Styles pour .btn button i */
+.btn button i
+ margin-right: 20px
+
+/* Styles pour .title */
+.title
+  color: #000
+  font-weight: bold
+  text-align: left
+  height: 20px
+  flex-shrink: 0
+  margin-left: 18px
+  margin-top: 17px
+  font-size: 18px
+
+/* Styles pour .title-menu */
+.title-menu
+  display: flex
+  align-items: center
+  justify-content: center
+  color: var(--Black, #101010)
+  font-family: Shrikhand
+  font-size: 28px
+  font-style: normal
+  font-weight: 400
+  line-height: normal
+  font-weight: bold
+
+/* Styles pour .fonctionnement */
+.fonctionnement
+  display: flex
+  padding: 50px 180px
+  flex-direction: column
+  gap: 25px
+  align-self: stretch
+
+/* Styles pour .mon-logo */
+.mon-logo 
+    display: block
+    margin: 0 auto
+    text-align: center
+    width: 200px
+    /* margin-bottom: 25px; */
+    display: flex
+    height: 96px
+    padding: 30px 0px 31.798px 0px
+    justify-content: center
+    align-items: center
+    align-self: stretch
+
+/* Styles pour nav ul */
+nav ul
+  list-style: none
+  display: flex
+  justify-content: center
+
+  /* Styles pour nav li */
+  nav li
+    margin: 0 20px
+
+  /* Styles pour nav a */
+  nav a
+    text-decoration: none
+    color: black
+    font-weight: bold
+
+/* Styles pour .hero */
+.hero
+  background-image: url('background.jpg')
+  background-size: cover
+  text-align: center
+  padding: 100px 0
+  color: #fff
+
+  /* Styles pour .hero h1 */
+  .hero h1
+    font-size: 36px
+    margin-bottom: 20px
+
+  /* Styles pour .hero p */
+  .hero p
+   font-size: 18px
+   margin-bottom: 30px
+
+/* Styles pour .cta-button */
+.cta-button
+  display: inline-block
+  background-color: #0065FC
+  color: #fff
+  text-decoration: none
+  padding: 10px 20px
+  border-radius: 5px
+  font-weight: bold
+  font-size: 18px
+
+/* Styles pour #loading-overlay */
+#loading-overlay
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: #fff
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 9999
+  animation: fadeOut 3s forwards
+
+/* Styles pour #loading-content */
+    #loading-content
+    text-align: center
+
+/* Styles pour #loading-content img */
+    #loading-content img
+    width: 60%
+    height: 60%
+
+/* Styles pour #loading-content p */
+    #loading-content p
+    margin-top: 10px
+
+/* Styles pour .feature */
+.feature
+  text-align: center
+
+/* Styles pour .feature h2 */
+  .feature h2
+    font-size: 24px
+    margin-bottom: 10px
+
+/* Styles pour .check-icon */
+.check-icon
+  display: none
+  position: absolute
+  left: -20px
+  top: 50%
+  transform: translateY(-50%)
+  color: green
+  font-size: 24px
+
+
+/* Style pour l'icône "V" lorsque le curseur est dessus */
+/* Styles pour .item:hover .check-icon */
+  .item:hover .check-icon
+    display: inline-block
+
+/* Styles pour .checkbox-container */
+.checkbox-container
+  position: relative
+  width: 30px
+  height: 30px
+  margin-right: 10px
+
+/* Style pour les coches (cases à cocher) */
+  input[type="checkbox"]
+    display: none
+
+/* Styles pour input[type="checkbox"]:checked + label */
+  input[type="checkbox"]:checked + label
+    border: 2px solid none
+    padding: 0px
+    color: #000
+
+  input[type="checkbox"]:checked + label::before 
+    right: -20px
+    opacity: 1
+
+/* Styles pour input[type="checkbox"]:checked + label .label-item */
+  input[type="checkbox"]:checked + label .label-item
+    width: 80%
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+
+
+/* Styles pour footer */
+footer
+  text-align: center
+  background-color: #333
+  color: #fff
+  padding: 10px 0
